@@ -12,6 +12,13 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 
 """
 
+from itertools import count
+
+
+datos = open("data.csv","r").readlines()
+datos = [z.replace("\n","") for z in datos]
+
+
 
 def pregunta_01():
     """
@@ -21,7 +28,10 @@ def pregunta_01():
     214
 
     """
-    return 214
+    col2=[z[2] for z in datos]
+    suma = sum([int(numero) for numero in col2])
+
+    return suma
 
 
 def pregunta_02():
@@ -39,7 +49,15 @@ def pregunta_02():
     ]
 
     """
-    return
+    col1=[z[0] for z in datos]
+    col1.sort()
+    l=[(x ,col1.count(x)) for x in col1]
+    diccionario = {key:valor for key, valor in l}
+    lista = []
+    [lista.append(item) for item in diccionario.items()]
+    return lista
+
+print(pregunta_02())
 
 
 def pregunta_03():
@@ -57,7 +75,10 @@ def pregunta_03():
     ]
 
     """
-    return
+    
+
+    return 
+
 
 
 def pregunta_04():
