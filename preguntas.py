@@ -119,7 +119,6 @@ def pregunta_04():
     return lista
  
 
-
 def pregunta_05():
     """
     Retorne una lista de tuplas con el valor maximo y minimo de la columna 2 por cada
@@ -135,8 +134,16 @@ def pregunta_05():
     ]
 
     """
-    return
+    col1=[z[0] for z in datos]
+    col2=[int(z[2]) for z in datos]
+    zipped=list(zip(col1, col2,col2))
 
+    zipped= list(set(zipped))
+    f=itemgetter(0)
+    zipped = sorted(zipped,key=f)
+
+
+#print(pregunta_05())
 
 def pregunta_06():
     """
