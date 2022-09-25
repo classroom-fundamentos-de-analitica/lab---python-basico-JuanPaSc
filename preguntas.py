@@ -13,6 +13,7 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 """
 
 from itertools import count
+from operator import itemgetter
 
 
 datos = open("data.csv","r").readlines()
@@ -57,7 +58,6 @@ def pregunta_02():
     [lista.append(item) for item in diccionario.items()]
     return lista
 
-print(pregunta_02())
 
 
 def pregunta_03():
@@ -75,9 +75,16 @@ def pregunta_03():
     ]
 
     """
-    
+    col1=[z[0] for z in datos]
+    col2=[int(z[2]) for z in datos]
+    zipped=list(zip(col1, col2))
+    f=itemgetter(0)
+    zipped = sorted(zipped,key=f)
+    contador={}
+    for key,value in zipped:
+        contador[key]= contador.get(key,0)+value
+    return [(key,contador[key]) for key in contador]
 
-    return 
 
 
 
