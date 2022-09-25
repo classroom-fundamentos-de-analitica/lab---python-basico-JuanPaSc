@@ -110,7 +110,14 @@ def pregunta_04():
     ]
 
     """
-    return
+    col3=[z[9:11] for z in datos]
+    col3.sort()
+    l=[(x ,col3.count(x)) for x in col3]
+    diccionario = {key:valor for key, valor in l}
+    lista = []
+    [lista.append(item) for item in diccionario.items()]
+    return lista
+ 
 
 
 def pregunta_05():
