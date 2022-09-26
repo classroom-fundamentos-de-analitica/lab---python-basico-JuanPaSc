@@ -234,9 +234,22 @@ def pregunta_07():
         (8, ["E", "D", "E", "A", "B"]),
         (9, ["A", "B", "E", "A", "A", "C"]),
     ]
-
+    
     """
-    return
+    col1=[z[0] for z in datos] #letras col 1
+    col2=[int(z[2]) for z in datos] #numero col 2
+    zipped=list(zip(col1, col2)) #Col 1 + Col 2
+    d={}
+    for i in zipped:
+        if i[1] in d:
+            d[i[1]]+=i[0]
+            
+        else:
+            d[i[1]]=i[0]
+    lista = [(i,list(d[i])) for i in d]
+    f=itemgetter(0)
+    lista = sorted(lista,key=f)
+    return lista
 
 
 def pregunta_08():
