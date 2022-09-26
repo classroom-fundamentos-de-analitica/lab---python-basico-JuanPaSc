@@ -137,13 +137,10 @@ def pregunta_05():
     col1=[z[0] for z in datos]
     col2=[int(z[2]) for z in datos]
     zipped=list(zip(col1, col2))
-
     f=itemgetter(0)
     zipped = sorted(zipped,key=f)
-
     d_mayor={}
     d_menor= {}
-    
     for i in zipped:
         if i[0] in d_mayor:
             if d_mayor[i[0]]<i[1]:
@@ -159,14 +156,11 @@ def pregunta_05():
     lista = []
 
     for i in zipped:
-        lista.append ( (i[0],d_mayor[i[0]],d_menor[i[0]]))
-    
-
-    lista=list(set(lista))
+        lista.append ((i[0],d_mayor[i[0]],d_menor[i[0]]))
+    lista=list(set(lista)) #Limpiando repetidos
 
     f=itemgetter(0)
     lista = sorted(lista,key=f)
-
     return lista
 
 
@@ -192,7 +186,45 @@ def pregunta_06():
     ]
 
     """
-    return
+    datos6=[z.replace("\t",";") for z in datos]
+    datos6=[z.split(";") for z in datos6]
+    col6= [z[4] for z in datos6]
+    col6= [z.split(",") for z in col6]
+    mayor={}
+    menor={}
+    for palabras in col6:
+        for i in palabras:
+            if i[0:3] in mayor:
+                if mayor[i[0:3]]<int(i[4:]):
+                    mayor[i[0:3]]=int(i[4:])
+            else:
+                mayor[i[0:3]]=int(i[4:])
+        for i in palabras:
+            if i[0:3] in menor:
+                if menor[i[0:3]]>int(i[4:]):
+                    menor[i[0:3]]=int(i[4:])
+            else:
+                menor[i[0:3]]=int(i[4:])     
+    
+    lista = [(i,menor[i],mayor[i]) for i in mayor]
+
+    f=itemgetter(0)
+    lista = sorted(lista,key=f)
+
+    return lista
+
+"""
+    
+    lista = []
+
+    for i in zipped:
+        lista.append ((i[0],d_mayor[i[0]],d_menor[i[0]]))
+    lista=list(set(lista)) #Limpiando repetidos
+
+    f=itemgetter(0)
+    lista = sorted(lista,key=f)
+    
+"""
 
 
 def pregunta_07():
