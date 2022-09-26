@@ -213,21 +213,9 @@ def pregunta_06():
 
     return lista
 
-"""
-    
-    lista = []
-
-    for i in zipped:
-        lista.append ((i[0],d_mayor[i[0]],d_menor[i[0]]))
-    lista=list(set(lista)) #Limpiando repetidos
-
-    f=itemgetter(0)
-    lista = sorted(lista,key=f)
-    
-"""
-
 
 def pregunta_07():
+    
     """
     Retorne una lista de tuplas que asocien las columnas 0 y 1. Cada tupla contiene un
     valor posible de la columna 2 y una lista con todas las letras asociadas (columna 1)
