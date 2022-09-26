@@ -136,14 +136,39 @@ def pregunta_05():
     """
     col1=[z[0] for z in datos]
     col2=[int(z[2]) for z in datos]
-    zipped=list(zip(col1, col2,col2))
+    zipped=list(zip(col1, col2))
 
-    zipped= list(set(zipped))
     f=itemgetter(0)
     zipped = sorted(zipped,key=f)
 
+    d_mayor={}
+    d_menor= {}
+    
+    for i in zipped:
+        if i[0] in d_mayor:
+            if d_mayor[i[0]]<i[1]:
+                d_mayor[i[0]]=i[1]
+        else:
+            d_mayor[i[0]]=i[1]
+    for i in zipped:
+        if i[0] in d_menor:
+            if d_menor[i[0]]>i[1]:
+                d_menor[i[0]]=i[1]
+        else:
+            d_menor[i[0]]=i[1]
+    lista = []
 
-#print(pregunta_05())
+    for i in zipped:
+        lista.append ( (i[0],d_mayor[i[0]],d_menor[i[0]]))
+    
+
+    lista=list(set(lista))
+
+    f=itemgetter(0)
+    lista = sorted(lista,key=f)
+
+    return lista
+
 
 def pregunta_06():
     """
