@@ -278,11 +278,13 @@ def pregunta_08():
     col2=[int(z[2]) for z in datos] #numero col 2
     zipped=list(zip(col1, col2)) #Col 1 + Col 2
     d={}
+    d1={}
     for i in zipped:
         if i[1] in d:
             d[i[1]]+=i[0]       
         else:
             d[i[1]]=i[0]
+                
     d = [(z, sorted(list(set(list(d[z]))))) for z in d]
     f=itemgetter(0)
     d = sorted(d,key=f)
@@ -310,8 +312,26 @@ def pregunta_09():
     }
 
     """
-    return
+    datos6=[z.replace("\t",";") for z in datos]
+    datos6=[z.split(";") for z in datos6]
+    col6= [z[4] for z in datos6]
+    col6= [z.split(",") for z in col6]
 
+    diccionario={}
+
+    for elemento in col6:
+        for i in elemento:
+            if i[0:3] in diccionario:
+                diccionario[i[0:3]]+=1
+            else:
+                diccionario[i[0:3]]=1
+
+    f=itemgetter(0)
+    diccionario = sorted(diccionario.items(),key=f)
+
+    return diccionario
+
+print(pregunta_09())
 
 def pregunta_10():
     """
