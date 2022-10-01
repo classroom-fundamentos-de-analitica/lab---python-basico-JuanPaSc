@@ -384,12 +384,7 @@ def pregunta_11():
     f=itemgetter(0)
     d = sorted(d.items(),key=f)
     d1 = {valor: numero for valor, numero in d}
-
     return d1
-
-
-print(pregunta_11())    
-
 
 def pregunta_12():
     """
@@ -404,6 +399,23 @@ def pregunta_12():
         'D': 136,
         'E': 324
     }
-
     """
-    return
+    datos6=[z.replace("\t",";") for z in datos]
+    datos6=[z.split(";") for z in datos6]
+    col1=[z[0] for z in datos6]
+    col5= [z[4] for z in datos6]
+    col5= [z.split(",") for z in col5]
+    zipped=list(zip(col1,col5))
+    d={}
+    for tupla in zipped:
+        d[tupla[0]]=0
+    for tupla in zipped:
+        if tupla[0] in d:
+            for valor in tupla[1]:
+                d[tupla[0]]+=int(valor[4:])
+
+    f=itemgetter(0)
+    d = sorted(d.items(),key=f)
+    d1 = {valor: numero for valor, numero in d}
+    return d1
+print(pregunta_12())   
