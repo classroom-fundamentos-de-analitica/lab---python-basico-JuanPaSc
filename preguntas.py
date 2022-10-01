@@ -316,22 +316,18 @@ def pregunta_09():
     datos6=[z.split(";") for z in datos6]
     col6= [z[4] for z in datos6]
     col6= [z.split(",") for z in col6]
-
     diccionario={}
-
     for elemento in col6:
         for i in elemento:
             if i[0:3] in diccionario:
                 diccionario[i[0:3]]+=1
             else:
                 diccionario[i[0:3]]=1
-
     f=itemgetter(0)
     diccionario = sorted(diccionario.items(),key=f)
+    diccionario1 = {valor: numero for valor, numero in diccionario}
 
-    return diccionario
-
-print(pregunta_09())
+    return diccionario1
 
 def pregunta_10():
     """
@@ -348,9 +344,11 @@ def pregunta_10():
         ("E", 2, 3),
         ("E", 3, 3),
     ]
-
-
     """
+    datos6=[z.replace("\t",";") for z in datos]
+    datos6=[z.split(";") for z in datos6]
+    
+    
     return
 
 
