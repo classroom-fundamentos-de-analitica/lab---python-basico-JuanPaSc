@@ -347,9 +347,7 @@ def pregunta_10():
     """
     datos6=[z.replace("\t",";") for z in datos]
     datos6=[z.split(";") for z in datos6]
-    
     ejercicio=[[z[0],len(z[2].split("-")),len(z[4].split(","))] for z in datos6]
-    
     return ejercicio
 
 
@@ -368,10 +366,29 @@ def pregunta_11():
         "f": 134,
         "g": 35,
     }
-
-
     """
-    return
+    datos6=[z.replace("\t",";") for z in datos]
+    datos6=[z.split(";") for z in datos6]
+    ejercicio=[(((z[1]),z[3].split(","))) for z in datos6]
+    valor=0
+    d={}
+    for tupla in ejercicio:
+        for elemento in tupla:
+            valor=int(tupla[0])
+            if elemento == tupla[1]:
+                for letra in elemento:
+                    if letra in d:
+                        d[letra]+=valor
+                    else:
+                        d[letra]=valor
+    f=itemgetter(0)
+    d = sorted(d.items(),key=f)
+    d1 = {valor: numero for valor, numero in d}
+
+    return d1
+
+
+print(pregunta_11())    
 
 
 def pregunta_12():
