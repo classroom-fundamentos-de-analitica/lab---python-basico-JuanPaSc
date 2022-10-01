@@ -347,10 +347,10 @@ def pregunta_10():
     """
     datos6=[z.replace("\t",";") for z in datos]
     datos6=[z.split(";") for z in datos6]
-    ejercicio=[[z[0],len(z[2].split("-")),len(z[4].split(","))] for z in datos6]
+    ejercicio=[(z[0],len(z[2].split("-")),len(z[4].split(","))) for z in datos6]
     return ejercicio
 
-
+print(pregunta_10())  
 def pregunta_11():
     """
     Retorne un diccionario que contengan la suma de la columna 2 para cada letra de la
@@ -418,4 +418,4 @@ def pregunta_12():
     d = sorted(d.items(),key=f)
     d1 = {valor: numero for valor, numero in d}
     return d1
-print(pregunta_12())   
+ 
