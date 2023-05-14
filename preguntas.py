@@ -12,6 +12,10 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 
 """
 
+from itertools import count
+from operator import itemgetter
+
+
 datos = open("data.csv","r").readlines()
 datos = [z.replace("\n","") for z in datos]
 
